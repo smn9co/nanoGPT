@@ -1,0 +1,34 @@
+---
+image: img.plattform.dataplattform.sparebank1.no/dp-dev:main-gitpod
+
+tasks:
+  - name: Init GitPod
+    before: |
+      export PIP_INDEX_URL=https://nexus.intern.sparebank1.no/repository/pypi-group-packages/simple
+
+      poetry self update
+      export PRE_COMMIT_HOME="$GITPOD_REPO_ROOT/.pre-commit"
+      mkdir -p "$PRE_COMMIT_HOME"
+      pre-commit install && pre-commit autoupdate && pre-commit run --all-files
+
+      export HOMEBREW_NO_ENV_HINTS=true
+      brew tap databricks/tap
+      brew install databricks
+      source <(databricks completion bash)
+
+vscode:
+  extensions:
+    - charliermarsh.ruff
+    - databricks.databricks
+    - databricks.sqltools-databricks-driver
+    - eamodio.gitlens
+    - ms-python.python
+    - ms-python.debugpy
+    - ms-toolsai.jupyter
+    - ms-toolsai.jupyter-keymap
+    - ms-toolsai.jupyter-renderers
+    - ms-toolsai.vscode-jupyter-cell-tags
+    - ms-toolsai.vscode-jupyter-slideshow
+    - mtxr.sqltools
+    - redhat.vscode-yaml
+    - timonwong.shellcheck
