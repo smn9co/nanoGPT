@@ -2,7 +2,7 @@ FROM img.plattform.dataplattform.sparebank1.no/dp-dev:main-gitpod
 
 WORKDIR /tmp/work
 
-COPY gitpod-requirements.txt .
+COPY requirements.txt .
 
 ENV PIP_INDEX_URL=https://nexus.intern.sparebank1.no/repository/pypi-group-packages/simple
 
