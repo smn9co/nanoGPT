@@ -1,0 +1,2 @@
+ape-client
+azure-cli
