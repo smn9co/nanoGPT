@@ -7,7 +7,7 @@ COPY requirements.txt .
 ENV PIP_INDEX_URL=https://nexus.intern.sparebank1.no/repository/pypi-group-packages/simple
 
 RUN pip install --upgrade pip \
-  && pip install -r gitpod-requirements.txt
+  && pip install -r requirements.txt
 
 RUN poetry self update \
   && poetry config virtualenvs.in-project true \
